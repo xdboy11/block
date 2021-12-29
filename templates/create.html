@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+
+{% block title %} Оставить отзыв {% endblock %}
+
+{% block content %}
+
+<div class = "row">
+    <div class = "col-sm-12">
+        <h1> Создать отзыв </h1>
+        <br>
+        <form method = "post">
+            {% csrf_token %}
+            {{ form.title }}
+            <br>
+            {{ form.content }}
+            <br>
+            <button type = "submit" class = "btn btn-success"> Добавить </button>
+            <span> {{error}} </span>
+        </form>
+    </div>
+</div>
+
+{% for coment in coments %}
+
+<div class = "alert alert-warning mt-2">
+    <h3> {{ coment.title}}  </h3>
+    <p> {{ coment.content|safe }} </p>
+    <p> {{ coment.created_at|date:"Y-m-d" }} </p>
+</div>
+
+{% endfor %}
+
+
+{% endblock  %}

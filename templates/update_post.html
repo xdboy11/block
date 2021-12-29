@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} update post {% endblock %} 
+
+{% block content %}
+
+<div class = "row">
+    <div class = "col-sm-12">
+        <h1> Update Post... </h1>
+        
+        <div class = "form-group">
+            <form method = "POST">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form.as_p }}
+                <button class = "btn btn-secondary" > Обновить </button>
+            </form>
+        </div>
+    </div> 
+</div>
+
+
+{% endblock %}}

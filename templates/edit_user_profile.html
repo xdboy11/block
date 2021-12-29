@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %} Создать профиль {% endblock  %}
+
+{% block content %}
+
+    {% if user.id == profile.user.id %}
+        <div class = "row">
+            <div class = "col-sm-12">
+                <h1> Edit profile page </h1>
+                <br>
+                <div class = "form-group">
+                    <form method = "POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class = "btn btn-secondary"> Обновить информацию </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% else %}
+    <h1> Это не ты </h1>
+    {% endif %}
+
+{% endblock  %}
